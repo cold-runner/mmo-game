@@ -1,7 +1,7 @@
 syntax="proto3";                //Proto协议
 package pb;                     //当前包名
 option csharp_namespace="Pb";   //给C#提供的选项
-option go_package = "./";
+option go_package = "./gen";
 //同步客户端玩家ID
 message SyncPid{
   int32 Pid=1;
@@ -24,4 +24,20 @@ message BroadCast{
     Position P=4;
     int32 ActionData=5;
   }
+}
+
+//玩家聊天数据
+message Talk{
+  string Content=1;    //聊天内容
+}
+
+//玩家信息
+message Player{
+  int32 Pid=1;
+  Position P=2;
+}
+
+//同步玩家显示数据
+message SyncPlayers{
+  repeated Player ps=1;
 }

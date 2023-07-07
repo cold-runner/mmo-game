@@ -2,6 +2,15 @@ package core
 
 import "fmt"
 
+const (
+	AOI_MIN_X  = 85
+	AOI_MAX_X  = 410
+	AOI_CNTS_X = 10
+	AOI_MIN_Y  = 75
+	AOI_MAX_Y  = 400
+	AOI_CNTS_Y = 20
+)
+
 /*
 AOI管理模块
 */
@@ -125,8 +134,8 @@ func (m *AOIManager) GetGidByPos(x, y float32) int {
 	return gy*m.CntsX + gx
 }
 
-// GetPIDsByPos 通过横纵坐标得到周边九宫格内的全部PlayerIDs
-func (m *AOIManager) GetPIDsByPos(x, y float32) (playerIDs []int) {
+// GetPidsByPos 通过横纵坐标得到周边九宫格内的全部PlayerIDs
+func (m *AOIManager) GetPidsByPos(x, y float32) (playerIDs []int) {
 	//根据横纵坐标得到当前坐标属于哪个格子ID
 	gID := m.GetGidByPos(x, y)
 
